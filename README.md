@@ -1,4 +1,4 @@
-# README.md для скрапера на NodeJS + Puppeteer
+# Torrents scraper
 
 ## 🚀 Описание проекта
 
