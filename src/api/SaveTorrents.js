@@ -6,7 +6,7 @@ const client = new Client({
   host: "185.170.153.5",
   port: "5432",
   database: "rutrackerposts_db",
-});
+}); 
 
 module.exports.saveTorrents = async function saveTorrents(torrents) {
   await client.connect();
