@@ -17,39 +17,20 @@
    npm install
    ```
 
-## ⚙️ Настройка
-
-Создайте файл `.env` в корне проекта и укажите необходимые переменные окружения:
-```
-BACKEND_API_URL=http://your-backend-api.com
-SCRAPER_TIMEOUT=30000
-HEADLESS_MODE=true
-```
-
 ## 🏃 Запуск
 
 ### Основной скрипт
 ```bash
-npm start
+npm run scrap
 ```
 или
 ```bash
-node src/index.js
-```
-
-### Запуск в режиме разработки (с отключенным headless)
-```bash
-npm run dev
+node main.js
 ```
 
 ### Запуск тестов
 ```bash
-npm test
-```
-
-### Запуск тестов с покрытием
-```bash
-npm run test:coverage
+npm run test
 ```
 
 ## 📝 Функциональность
@@ -62,43 +43,9 @@ npm run test:coverage
 
 ## � Тестирование
 
-Проект использует Vitest для unit-тестирования. Тесты расположены в директории `__tests__`.
+Проект использует Vitest для unit-тестирования. Тесты расположены в директории `tests`.
 
 Основные тесты:
 - Парсинг таблицы
 - Валидация данных
 - Интеграция с API бэкенда
-
-## 🛠️ Структура проекта
-
-```
-.
-├── src/
-│   ├── index.js          # Основной скрипт
-│   ├── scraper.js        # Логика парсинга
-│   ├── api.js           # Взаимодействие с бэкендом
-│   └── utils.js         # Вспомогательные функции
-├── __tests__/
-│   ├── scraper.test.js
-│   └── api.test.js
-├── .env.example
-├── package.json
-└── README.md
-```
-
-## ⚠️ Известные проблемы
-
-1. При медленном интернете могут потребоваться дополнительные таймауты
-2. Изменения в структуре страницы могут сломать парсинг
-
-## 🤝 Вклад в проект
-
-1. Форкните репозиторий
-2. Создайте ветку для вашей фичи (`git checkout -b feature/amazing-feature`)
-3. Закоммитьте изменения (`git commit -m 'Add some amazing feature'`)
-4. Запушьте в ветку (`git push origin feature/amazing-feature`)
-5. Откройте Pull Request
-
-## 📜 Лицензия
-
-[MIT](https://choosealicense.com/licenses/mit/)
