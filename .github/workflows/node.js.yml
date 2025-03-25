@@ -29,16 +29,26 @@ jobs:
     - run: npm install
     
   test:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    
+    permissions:
+      # Required to checkout the code
+      contents: read
+      # Required to put a comment into the pull-request
+      pull-requests: write
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-
-    - run: npm test
+    - name: 'Install Node'
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+    - name: 'Install Deps'
+      run: npm install
+    - name: 'Test'
+      run: npx vitest --coverage.enabled true
+    - name: 'Report Coverage'
+      # Set if: always() to also generate the report if tests are failing
+      # Only works if you set `reportOnFailure: true` in your vite config as specified above
+      if: always() 
+      uses:  davelosert/vitest-coverage-report-action@v2
