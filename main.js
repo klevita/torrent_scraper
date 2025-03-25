@@ -12,8 +12,7 @@ async function main() {
   const torrents = await extractTorrentsList(
     browser,
     "https://rutracker.org/forum/viewforum.php?f=635"
-  );
-
+  ); 
   console.log(torrents);
 
   saveTorrents(torrents);
